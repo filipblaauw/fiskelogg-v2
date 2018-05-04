@@ -8,6 +8,7 @@
 
 function envu($data = array())
 {
+  /*
     foreach ($data as $key => $value) {
         if (env($key) === $value) {
             unset($data[$key]);
@@ -35,6 +36,7 @@ function envu($data = array())
     $env = implode("\n", $env);
     file_put_contents(base_path() . '/.env', $env);
     return true;
+    */
 }
 
 //////////////////////////////////////////////////////////////////////// Date helper function starts
