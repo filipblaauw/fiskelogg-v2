@@ -32,7 +32,7 @@
     	          <li v-if="fish.bait" class="list-group-item">{{trans('fish.bait')}}: <span class="pull-right">{{fish.bait}}</span></li>
     						<li v-if="fish.line" class="list-group-item">Flueline: <span class="pull-right">{{fish.line}}</span></li>
     						<li class="list-group-item">{{trans('fish.waterlevel')}}: <span class="pull-right">{{fish.waterLevel | waterLevel }}</span></li>
-    						<li v-if="fish.waterTemp" class="list-group-item">{{trans('fish.temperature')}}: <span class="pull-right">{{fish.waterTemp}} &deg;C</span></li>
+    						<li v-if="fish.waterTemp" class="list-group-item">{{trans('fish.temperature')}}: <span class="pull-right">{{fish.waterTemp | temperature }} &deg;C</span></li>
     						<li class="list-group-item">{{trans('fish.lice')}}: <span class="pull-right">{{fish.lice | lice }}</span></li>
     						<li class="list-group-item">{{trans('fish.sex')}}: <span class="pull-right">{{fish.sex | sex }}</span></li>
     						<li class="list-group-item">{{trans('fish.released')}}: <span class="pull-right">{{fish.released | released }}</span></li>
@@ -123,6 +123,19 @@ export default {
     }
   },
   filters: {
+    temperature: function (value) {
+      if (value == 1) {
+        return "0-5"
+      } if (value == 2) {
+        return "5-10"
+      } if (value == 3) {
+        return "10-15"
+      } if (value == 4) {
+        return "15-20"
+      } else {
+        return "20-25"
+      }
+    },
     waterLevel: function (value) {
       if (value == 1) {
         return i18n.fish.waterlevel_low
